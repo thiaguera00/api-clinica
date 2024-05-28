@@ -1,6 +1,9 @@
 const express = require('express');
 const sequelize = require('./database'); 
 const usuarioRoutes = require('./app/routes/usuarioRoutes');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJSDoc = require('swagger-jsdoc');
+
 
 const app = express();
 
@@ -27,3 +30,24 @@ sequelize.authenticate()
   app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
+
+const swaggerOptions = {
+  swaggerDefinition: {
+      openapi: '3.0.0',
+      info: {
+          title: 'API Documentation',
+          version: '1.0.0',
+          description: 'API Information'
+      },
+      servers: [
+          {
+              url: 'http://localhost:3000',
+              description: 'Local server'
+          }
+      ]
+  },
+  apis: ['./app/routes/*.js'] 
+};
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
