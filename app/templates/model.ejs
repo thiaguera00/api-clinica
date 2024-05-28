@@ -1,19 +1,15 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../database');
 
-const Familia = sequelize.define('Familia', {
+const <%= modelName %> = sequelize.define('<%= modelName %>', {
     id: {
         type: 'integer',
         primaryKey: true,
         autoIncrement: true,
     },
-    nome: {
-        type: DataTypes.STRING('50'),
-        allowNull: true
-    }
 }, {
-    tableName:'familia',
+    tableName: '<%= tableName %>',
     timestamps: false,
 });
 
-module.exports = Familia;
+module.exports = <%= modelName %>;

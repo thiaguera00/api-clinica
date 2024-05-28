@@ -1,12 +1,21 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const sequelize = require('./database'); 
 
-app.get('/', (req, res) => {
-    res.send('Hello, world')
-})
+const app = express();
 
+app.use(express.json());
 
-app.listen(port, () => {
-    console.log(`Listen on Port ${port}`)
-})
+sequelize.authenticate()
+  .then(() => {
+    console.log('Conexão com o banco de dados foi estabelecida com sucesso.');
+    return sequelize.sync();
+  })
+  .then(() => {
+    console.log('Sincronização com o banco de dados concluída.');
+    app.listen(3000, () => {
+      console.log('Servidor rodando na porta 3000');
+    });
+  })
+  .catch(err => {
+    console.error('Não foi possível conectar ao banco de dados:', err);
+  });

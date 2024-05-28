@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize') 
 const sequelize = require('../../database')
 
-const Endereco = sequelize.define('endereco', {
+const Endereco = sequelize.define('Endereco', {
     id: {
         type: 'integer',
         primaryKey: true,
@@ -23,6 +23,9 @@ const Endereco = sequelize.define('endereco', {
         type: DataTypes.STRING('50'),
         allowNull: false,
     }
+}, {
+    tableName: 'endereco',
+    timestamps: false,
 });
 
 module.exports = Endereco;

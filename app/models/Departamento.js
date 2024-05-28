@@ -1,19 +1,18 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../database');
 
-const Familia = sequelize.define('Familia', {
+const Departamento = sequelize.define('Departamento', {
     id: {
         type: 'integer',
         primaryKey: true,
         autoIncrement: true,
     },
     nome: {
-        type: DataTypes.STRING('50'),
-        allowNull: true
+       type: DataTypes.STRING('100') 
     }
 }, {
-    tableName:'familia',
+    tableName: 'departamento',
     timestamps: false,
 });
 
-module.exports = Familia;
+module.exports = Departamento;
