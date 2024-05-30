@@ -4,7 +4,7 @@ const Paciente = require('./Paciente');
 
 const Pagamento = sequelize.define('Pagamento', {
     id: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
@@ -17,7 +17,7 @@ const Pagamento = sequelize.define('Pagamento', {
         allowNull: false,
     },
     id_paciente: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         references: {
             model: Paciente,
             key: 'id'

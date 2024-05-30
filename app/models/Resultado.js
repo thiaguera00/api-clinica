@@ -4,7 +4,7 @@ const Exame = require('./Exame');
 
 const Resultado = sequelize.define('Resultado', {
     id: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
@@ -13,7 +13,7 @@ const Resultado = sequelize.define('Resultado', {
         allowNull: false,
     },
     id_exame: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         references: {
             model: Exame,
             key: 'id'

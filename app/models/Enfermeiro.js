@@ -4,7 +4,7 @@ const Departamento = require('./Departamento');
 
 const Enfermeiro = sequelize.define('Enfermeiro', {
     id: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
@@ -17,7 +17,7 @@ const Enfermeiro = sequelize.define('Enfermeiro', {
         allowNull: false,
     },
     id_departamento: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
             model: Departamento,

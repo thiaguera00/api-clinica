@@ -52,8 +52,8 @@ const Paciente = sequelize.define('Paciente', {
 });
 
 
-Paciente.belongsTo(Endereco, { foreignKey: 'id' });
-Paciente.belongsTo(Familia, { foreignKey: 'id' });
-Paciente.belongsTo(Convenio, { foreignKey: 'id' });
+Paciente.belongsTo(Endereco, { foreignKey: 'id_endereco', as: 'endereco' });
+Paciente.belongsTo(Familia, { foreignKey: 'id_familia', as: 'familia' });
+Paciente.belongsTo(Convenio, { foreignKey: 'id_convenio', as: 'convenio'});
 
 module.exports = Paciente;

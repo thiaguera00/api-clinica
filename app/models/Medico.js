@@ -5,7 +5,7 @@ const Departamento = require('./Departamento');
 
 const Medico = sequelize.define('Medico', {
     id: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },

@@ -37,7 +37,7 @@ const sequelize = new Sequelize('api_clinica', 'seu_usuario', 'sua_senha', {
 });
 
 module.exports = sequelize;
-}
+
 ```
 Inicie o servidor
 

@@ -4,23 +4,23 @@ const Departamento = require('./Departamento')
 
 const Sala = sequelize.define('Sala', {
     id: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
     numero: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     id_departamento: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         references: {
             model: Departamento,
             key: 'id'
         }
     },
     id_sala: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         references: {
             model: Sala,
             key: 'id'

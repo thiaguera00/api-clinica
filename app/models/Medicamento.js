@@ -4,7 +4,7 @@ const Receita = require('./Receita');
 
 const Medicamento = sequelize.define('Medicamento', {
     id: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
@@ -13,7 +13,7 @@ const Medicamento = sequelize.define('Medicamento', {
         allowNull: false,
     },
     id_receita: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         references: {
             model: Receita,
             key: 'id'

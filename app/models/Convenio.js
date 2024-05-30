@@ -3,7 +3,7 @@ const sequelize = require('../../database');
 
 const Convenio = sequelize.define('Convenio', {
     id: {
-        type: 'integer',
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
@@ -16,6 +16,9 @@ const Convenio = sequelize.define('Convenio', {
         allowNull: false,
     }
 
+}, {
+    tableName: 'convenio',  
+    timestamps: false,
 });
 
 module.exports = Convenio;
