@@ -38,8 +38,8 @@ const Medico = sequelize.define('Medico', {
     timestamps: false
 });
 
-Medico.belongsTo(Especialidade, {foreignKey: 'id'});
-Medico.belongsTo(Departamento, {foreignKey: 'id'});
+Medico.belongsTo(Especialidade, {foreignKey: 'id', as: 'especialidade'});
+Medico.belongsTo(Departamento, {foreignKey: 'id', as: 'departamento'});
 
 
 module.exports = Medico;

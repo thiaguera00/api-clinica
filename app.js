@@ -2,6 +2,7 @@ const express = require('express');
 const sequelize = require('./database'); 
 const usuarioRoutes = require('./app/routes/usuarioRoutes');
 const pacienteRoutes = require('./app/routes/pacienteRoutes');
+const medicoRoutes = require('./app/routes/medicoRoutes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use('/api/usuario', usuarioRoutes);
 app.use('/api/pacientes', pacienteRoutes);
+app.use('/api/medico', medicoRoutes);
 
 sequelize.authenticate()
   .then(() => {
