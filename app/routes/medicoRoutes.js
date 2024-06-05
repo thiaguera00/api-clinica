@@ -6,12 +6,12 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Medicos
- *   description: API para gerenciar médicos
+ *   description: Rotas para médicos
  */
 
 /**
  * @swagger
- * /api/medico/registro:
+ * /api/medico/registrar:
  *   post:
  *     summary: Registrar um novo médico
  *     tags: [Medicos]
@@ -42,7 +42,7 @@ const router = express.Router();
  *       500:
  *         description: Erro ao criar Médico
  */
-router.post('/registro', medicoController.registro);
+router.post('/registrar', medicoController.registro);
 
 /**
  * @swagger

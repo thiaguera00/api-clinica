@@ -3,9 +3,14 @@ const sequelize = require('./database');
 const usuarioRoutes = require('./app/routes/usuarioRoutes');
 const pacienteRoutes = require('./app/routes/pacienteRoutes');
 const medicoRoutes = require('./app/routes/medicoRoutes');
+const consultaRoutes = require('./app/routes/consultaRoutes');
+const tratamentoRoutes = require('./app/routes/tratamentoRoutes');
+const medicamentoRoutes = require('./app/routes/medicamentoRoutes');
+const hospitalizacaoRoutes = require('./app/routes/hospitalizacaoRoutes');
+const examesRoutes = require('./app/routes/exameRoutes');
+const resultadoRoutes = require('./app/routes/resultadoRoutes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
-
 
 const app = express();
 
@@ -14,6 +19,12 @@ app.use(express.json());
 app.use('/api/usuario', usuarioRoutes);
 app.use('/api/pacientes', pacienteRoutes);
 app.use('/api/medico', medicoRoutes);
+app.use('/api/consulta', consultaRoutes);
+app.use('/api/tratamento', tratamentoRoutes);
+app.use('/api/medicamento', medicamentoRoutes);
+app.use('/api/hospitalizacao', hospitalizacaoRoutes);
+app.use('/api/exames', examesRoutes);
+app.use('/api/resultado', resultadoRoutes);
 
 sequelize.authenticate()
   .then(() => {
@@ -31,7 +42,7 @@ sequelize.authenticate()
   });
 
   // Rota de Health Check
-  app.get('/', (req, res) => {
+  app.get('/', (_req, res) => {
     res.send('Hello, World!');
 });
 
@@ -39,9 +50,9 @@ const swaggerOptions = {
   swaggerDefinition: {
       openapi: '3.0.0',
       info: {
-          title: 'API Documentation',
+          title: 'Documentação API clínica',
           version: '1.0.0',
-          description: 'API Information'
+          description: 'informações API'
       },
       servers: [
           {

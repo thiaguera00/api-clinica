@@ -18,19 +18,12 @@ const Sala = sequelize.define('Sala', {
             model: Departamento,
             key: 'id'
         }
-    },
-    id_sala: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: Sala,
-            key: 'id'
-        }
     }
 }, {
     tableName: 'sala',
     timestamps: false,
 });
 
-Sala.belongsTo(Departamento, {foreignKey: 'id'});
+Sala.belongsTo(Departamento, {foreignKey: 'id_departamento'});
 
 module.exports = Sala;

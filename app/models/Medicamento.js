@@ -24,6 +24,6 @@ const Medicamento = sequelize.define('Medicamento', {
     timestamps: false,
 });
 
-Medicamento.belongsTo(Receita, {foreignKey: 'id'});
+Medicamento.belongsTo(Receita, {foreignKey: 'id_receita', as: 'receita'}); 
 
 module.exports = Medicamento;

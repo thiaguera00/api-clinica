@@ -40,8 +40,8 @@ const Consulta = sequelize.define('Consulta', {
     timestamps: false,
 });
 
-Consulta.belongsTo(Paciente, {foreignKey: 'id'});
-Consulta.belongsTo(Medico, {foreignKey: 'id'});
-Consulta.belongsTo(Sala, {foreignKey: 'id'});
+Consulta.belongsTo(Paciente, {foreignKey: 'id_paciente'});
+Consulta.belongsTo(Medico, {foreignKey: 'id_medico'});
+Consulta.belongsTo(Sala, {foreignKey: 'id_sala'});
 
 module.exports = Consulta;

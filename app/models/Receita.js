@@ -20,6 +20,6 @@ const Receita = sequelize.define('Receita', {
     timestamps: false,
 });
 
-Receita.belongsTo(Tratamento, {foreignKey: 'id'});
+Receita.belongsTo(Tratamento, {foreignKey: 'id_tratamento'});
 
 module.exports = Receita;

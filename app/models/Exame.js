@@ -36,7 +36,7 @@ const Exame = sequelize.define('Exame', {
     timestamps: false,
 });
 
-Exame.belongsTo(Paciente, {foreignKey: 'id'});
-Exame.belongsTo(Medico, {foreignKey: 'id'});
+Exame.belongsTo(Paciente, {foreignKey: 'id_paciente'});
+Exame.belongsTo(Medico, {foreignKey: 'id_medico'});
 
 module.exports = Exame;

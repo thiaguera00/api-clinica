@@ -1,4 +1,4 @@
-const { DataTypes, BelongsTo, ForeignKeyConstraintError } = require('sequelize');
+const { DataTypes, BelongsTo} = require('sequelize');
 const sequelize = require('../../database');
 const Paciente = require('./Paciente');
 const Sala = require('./Sala');
@@ -15,7 +15,7 @@ const Hospitalizacao = sequelize.define('Hospitalizacao', {
     },
     data_alta: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
     },
     id_paciente: {
         type: DataTypes.INTEGER,
@@ -33,10 +33,10 @@ const Hospitalizacao = sequelize.define('Hospitalizacao', {
     }
 }, {
     tableName: 'hospitalizacao',
-    timestamps: false,
+    timestamps: true,
 });
 
-Hospitalizacao.belongsTo(Paciente, {foreignKey: 'id'});
-Hospitalizacao.belongsTo(Sala, {foreignKey: 'id'});
+Hospitalizacao.belongsTo(Paciente, {foreignKey: 'id_paciente'});
+Hospitalizacao.belongsTo(Sala, {foreignKey: 'id_sala'});
 
 module.exports = Hospitalizacao;
