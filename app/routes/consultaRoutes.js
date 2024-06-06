@@ -11,7 +11,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/consultas/registro:
+ * /api/consultas/registrar:
  *   post:
  *     summary: Registrar uma nova Consulta
  *     tags: [Consulta]
@@ -37,7 +37,7 @@ const router = express.Router();
  *       500:
  *         description: Erro ao criar consulta
  */
-router.post('/registro', consultaController.registrar);
+router.post('/registrar', consultaController.registrar);
 
 /**
  * @swagger

@@ -1,5 +1,6 @@
 const express = require('express');
 const sequelize = require('./database'); 
+const cors = require('cors');
 const usuarioRoutes = require('./app/routes/usuarioRoutes');
 const pacienteRoutes = require('./app/routes/pacienteRoutes');
 const medicoRoutes = require('./app/routes/medicoRoutes');
@@ -13,6 +14,13 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
 
 const app = express();
+
+// Configuração do CORS
+app.use(cors({
+  origin: 'http://localhost:4000', // Permite acesso da origem http://localhost:4000
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'] // Cabeçalhos permitidos
+}));
 
 app.use(express.json());
 
@@ -41,9 +49,9 @@ sequelize.authenticate()
     console.error('Não foi possível conectar ao banco de dados:', err);
   });
 
-  // Rota de Health Check
-  app.get('/', (_req, res) => {
-    res.send('Hello, World!');
+// Rota de Health Check
+app.get('/', (_req, res) => {
+  res.send('Hello, World!');
 });
 
 const swaggerOptions = {
