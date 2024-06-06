@@ -32,7 +32,7 @@ const Agendamento = sequelize.define('Agendamento', {
     timestamps: false,
 });
 
-Agendamento.belongsTo(Paciente, {foreignKey: 'id'});
-Agendamento.belongsTo(Medico, {foreignKey: 'id'});
+Agendamento.belongsTo(Paciente, {foreignKey: 'id_paciente'});
+Agendamento.belongsTo(Medico, {foreignKey: 'id_medico'});
 
 module.exports = Agendamento;

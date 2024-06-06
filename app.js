@@ -8,6 +8,7 @@ const consultaRoutes = require('./app/routes/consultaRoutes');
 const tratamentoRoutes = require('./app/routes/tratamentoRoutes');
 const medicamentoRoutes = require('./app/routes/medicamentoRoutes');
 const hospitalizacaoRoutes = require('./app/routes/hospitalizacaoRoutes');
+const agendamentoRoutes = require('./app/routes/agendamentoRoutes');
 const examesRoutes = require('./app/routes/exameRoutes');
 const resultadoRoutes = require('./app/routes/resultadoRoutes');
 const swaggerUi = require('swagger-ui-express');
@@ -15,11 +16,10 @@ const swaggerJSDoc = require('swagger-jsdoc');
 
 const app = express();
 
-// Configuração do CORS
 app.use(cors({
-  origin: 'http://localhost:4000', // Permite acesso da origem http://localhost:4000
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'] // Cabeçalhos permitidos
+  origin: 'http://localhost:4000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  allowedHeaders: ['Content-Type', 'Authorization'] 
 }));
 
 app.use(express.json());
@@ -33,6 +33,7 @@ app.use('/api/medicamento', medicamentoRoutes);
 app.use('/api/hospitalizacao', hospitalizacaoRoutes);
 app.use('/api/exames', examesRoutes);
 app.use('/api/resultado', resultadoRoutes);
+app.use('/api/agendamento', agendamentoRoutes);
 
 sequelize.authenticate()
   .then(() => {
