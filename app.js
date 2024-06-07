@@ -11,6 +11,7 @@ const hospitalizacaoRoutes = require('./app/routes/hospitalizacaoRoutes');
 const agendamentoRoutes = require('./app/routes/agendamentoRoutes');
 const examesRoutes = require('./app/routes/exameRoutes');
 const resultadoRoutes = require('./app/routes/resultadoRoutes');
+const pagamentoRoutes = require('./app/routes/pagamentoRoutes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
 
@@ -34,6 +35,7 @@ app.use('/api/hospitalizacao', hospitalizacaoRoutes);
 app.use('/api/exames', examesRoutes);
 app.use('/api/resultado', resultadoRoutes);
 app.use('/api/agendamento', agendamentoRoutes);
+app.use('/api/pagamento', pagamentoRoutes);
 
 sequelize.authenticate()
   .then(() => {

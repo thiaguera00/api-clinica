@@ -28,6 +28,6 @@ const Pagamento = sequelize.define('Pagamento', {
     timestamps: false,
 });
 
-Pagamento.belongsTo(Paciente, {foreignKey: 'id'});
+Pagamento.belongsTo(Paciente, {foreignKey: 'id_paciente'});
 
 module.exports = Pagamento;
